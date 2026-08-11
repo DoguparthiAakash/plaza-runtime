@@ -1,10 +1,13 @@
-# `plaza-runtime`
+# PlazaVM Repository
 
-Core runtime backend abstractions and execution interfaces.
+This repository is part of the PlazaVM ecosystem.
 
----
+## Building
+```
+cargo build
+```
 
-## 🛠 Responsibilities
-
-- Common `RuntimeBackend` trait definitions.
-- Backend capability models (`BackendCapability`).
+## Testing
+```
+cargo test
+```
