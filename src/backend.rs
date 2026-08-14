@@ -42,12 +42,8 @@ pub trait RuntimeBackend: Send + Sync {
 
     // ── Mandatory lifecycle ─────────────────────────────────────────────────
 
-    /// Provision a new runtime instance from a workspace spec.
-    ///
-    /// The `spec_json` parameter is a JSON-serialized `WorkspaceSpec`.
-    /// We use JSON here to avoid making `plaza-runtime` depend on
-    /// `plaza-workspace`, keeping the dependency graph acyclic.
-    async fn create(&self, spec_json: &str) -> PlazaResult<RuntimeInstance>;
+    /// Provision a new runtime instance from a machine config.
+    async fn create(&self, config: &crate::machine::MachineConfig) -> PlazaResult<RuntimeInstance>;
 
     /// Start a previously created instance.
     async fn start(&self, instance_id: &str) -> PlazaResult<()>;
